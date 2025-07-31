@@ -1,77 +1,45 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8"/>
-  <title>golive-mini – DevOps Demo</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root{
-      --bg:#0d1117;
-      --card:#161b22;
-      --accent:#00d4aa;
-      --text:#c9d1d9;
-      --text-dim:#8b949e;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Inter',sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-      padding:2rem;
-    }
-    .wrapper{
-      max-width:600px;
-      width:100%;
-      text-align:center;
-      animation:fadeIn .8s ease-out;
-    }
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(30px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-    h1{
-      font-size:clamp(2.2rem,5vw,3rem);
-      font-weight:700;
-      margin-bottom:.5rem;
-      letter-spacing:-.02em;
-    }
-    .subtitle{
-      font-size:1.1rem;
-      color:var(--text-dim);
-      line-height:1.5;
-      margin-bottom:2.5rem;
-    }
-    .links{
-      display:flex;
-      gap:1rem;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-bottom:2.5rem;
-    }
-    .btn{
-      padding:.75rem 1.5rem;
-      border-radius:.5rem;
-      font-weight:600;
-      font-size:.95rem;
-      text-decoration:none;
-      transition:all .3s ease;
-      cursor:pointer;
-    }
-    .btn-primary{
-      background:var(--accent);
-      color:#000;
-    }
-    .btn-primary:hover{filter:brightness(1.15)}
-    .btn-secondary{
-      background:var(--card);
-      color:var(--text);
-      border:1px solid var(--text-dim);
-    }
+<div align="center">
+
+# 🚀 golive-mini
+
+*One-file Go HTTP service + single Terraform plan + GitHub Actions pipeline → live on AWS ECS Fargate in 90 seconds.*
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/🚀_LIVE-Open_Demo-00d4aa?style=for-the-badge&logo=aws)](https://golive-mini-123456789.ap-southeast-1.elb.amazonaws.com)
+[![GitHub Repo](https://img.shields.io/badge/📦_REPO-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/zerotrace-dev/golive-mini)
+
+<br/>
+
+### 📊 Quick Stats
+
+| Metric | Value |
+|--------|-------|
+| **Lines of Go Code** | `18` |
+| **Lines of Terraform** | `60` |
+| **Image Size** | `15 MB` |
+| **Deploy Time** | `~90 s` |
+| **Idle Cost** | `≈ $0.01 / hour` |
+
+</div>
+
+---
+
+## 🧰 Tech Stack
+![Go](https://img.shields.io/badge/Go-1.22-00ADD8?style=flat-square&logo=go)
+![Terraform](https://img.shields.io/badge/Terraform-1.6-5C4EE5?style=flat-square&logo=terraform)
+![Docker](https://img.shields.io/badge/Docker-Multi--stage-2496ED?style=flat-square&logo=docker)
+![AWS](https://img.shields.io/badge/AWS-ECS_Fargate-FF9900?style=flat-square&logo=amazon-aws)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions)
+
+---
+
+## ⚡ One-command Deploy
+
+```bash
+# fork, then run:
+aws ecr create-repository --repository-name golive-mini
+# push to `main` — done!
     .btn-secondary:hover{background:#21262d}
     footer{
       margin-top:3rem;

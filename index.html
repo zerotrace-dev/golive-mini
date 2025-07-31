@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="utf-8"/>
   <title>golive-mini – DevOps Demo</title>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root{
       --bg:#0d1117;
@@ -12,28 +12,122 @@
       --accent:#00d4aa;
       --text:#c9d1d9;
       --text-dim:#8b949e;
+      --radius:.75rem;
+      --transition:.35s cubic-bezier(.4,0,.2,1);
     }
     *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
     body{
-      font-family:'Inter',sans-serif;
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
       background:var(--bg);
       color:var(--text);
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:100vh;
       padding:2rem;
     }
-    .wrapper{
-      max-width:600px;
+    .card{
       width:100%;
+      max-width:520px;
+      background:var(--card);
+      border:1px solid #21262d;
+      border-radius:var(--radius);
+      padding:3rem 2.5rem;
       text-align:center;
-      animation:fadeIn .8s ease-out;
+      animation:fadeUp .8s var(--transition) both;
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
     }
-    @keyframes fadeIn{
+    @keyframes fadeUp{
       from{opacity:0;transform:translateY(30px)}
       to{opacity:1;transform:translateY(0)}
     }
+    h1{
+      font-size:clamp(1.8rem,4vw,2.4rem);
+      font-weight:600;
+      letter-spacing:-.02em;
+      margin-bottom:.5rem;
+    }
+    .subtitle{
+      font-size:clamp(.9rem,2.5vw,1.1rem);
+      color:var(--text-dim);
+      line-height:1.55;
+      margin-bottom:2.2rem;
+    }
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:1.25rem;
+      margin-bottom:2.2rem;
+      flex-wrap:wrap;
+    }
+    .stat{
+      background:#21262d;
+      padding:.5rem .9rem;
+      border-radius:.5rem;
+      font-size:.85rem;
+      color:var(--accent);
+      font-weight:500;
+      transition:background var(--transition);
+    }
+    .stat:hover{background:#30363d}
+    .actions{
+      display:flex;
+      justify-content:center;
+      gap:.75rem;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:.75rem 1.4rem;
+      border-radius:var(--radius);
+      font-size:.95rem;
+      font-weight:500;
+      text-decoration:none;
+      transition:all var(--transition);
+      cursor:pointer;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#000;
+    }
+    .btn.primary:hover{filter:brightness(1.12)}
+    .btn.secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid #30363d;
+    }
+    .btn.secondary:hover{background:#21262d;border-color:#8b949e}
+    .footer{
+      margin-top:2.4rem;
+      font-size:.8rem;
+      color:var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>golive-mini</h1>
+    <p class="subtitle">
+      Satu file Go + Terraform + GitHub Actions = live di AWS ECS Fargate dalam 90 detik
+    </p>
+
+    <div class="stats">
+      <span class="stat">18 LoC Go</span>
+      <span class="stat">60 LoC TF</span>
+      <span class="stat">15 MB Image</span>
+      <span class="stat">90 s Deploy</span>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" href="https://golive-mini-123456789.ap-southeast-1.elb.amazonaws.com" target="_blank" rel="noopener">🚀 Live Demo</a>
+      <a class="btn secondary" href="https://github.com/zerotrace-dev/golive-mini" target="_blank" rel="noopener">📦 GitHub</a>
+    </div>
+
+    <div class="footer">
+      © 2024 zerotrace-dev
+    </div>
+  </div>
+</body>
+</html>
     h1{
       font-size:clamp(2.2rem,5vw,3rem);
       font-weight:700;
